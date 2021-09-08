@@ -9,6 +9,7 @@ import { TextInputField } from './forms/inputs';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SelectField } from './forms/inputs/SelectField';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 export const Form: React.FC = () => {
   const [{ availableClasses, availableRaces }, dispatch] = useApp();
@@ -27,23 +28,17 @@ export const Form: React.FC = () => {
     race,
     characterClass,
   }: FormInputs) => {
-    const response = await fetch(`localhost:5000/api`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json;charset=UTF-8',
-      },
-      body: JSON.stringify({
-        name,
-        class: characterClass,
-        race,
-      }),
+    dispatch(setBackstory(['']));
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    const response = await axios.post('http://127.0.0.1:5000/api', {
+      name,
+      class: characterClass,
+      race,
     });
-    const { data, errors } = await response.json();
-    if (response.ok) {
-      return dispatch(setBackstory(data));
+    if (response.status === 200) {
+      dispatch(setBackstory([response.data.backstory]));
     } else {
-      console.error(errors);
-      return dispatch(setBackstory([]));
+      dispatch(setBackstory(['An error has occured...']));
     }
   };
   return (

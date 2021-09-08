@@ -4,9 +4,11 @@ import Typical from 'react-typical';
 export const Typer: React.FC = () => {
   const [{ backstory }] = useApp();
 
-  return (
-    <div className="TypistExample">
-      <Typical steps={backstory}></Typical>
-    </div>
-  );
+  if (backstory[0] !== [''])
+    return (
+      <div className="TypistExample">
+        <Typical steps={backstory}></Typical>
+      </div>
+    );
+  else return <div></div>;
 };
