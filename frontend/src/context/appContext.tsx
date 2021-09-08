@@ -29,6 +29,7 @@ const initialState: AppContextType = {
     'Dragonborn',
     'Dwarf',
     'Elf',
+    'Firbolg',
     'Genasi',
     'Gnome',
     'Goblin',
