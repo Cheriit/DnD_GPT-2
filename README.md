@@ -8,8 +8,8 @@
 ## Instructions
 
 - In main directory add `gpt2_dnd_model.pt`
-- Install pytorch, flask and flask-cors
-- Use `npm install` inside frontend directory`
+- Backend - Install torch, transformers, flask and flask-cors
+- Frontend - Use `npm install` inside frontend directory`
 
 ## Running app
 
