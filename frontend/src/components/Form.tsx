@@ -46,7 +46,7 @@ export const Form: React.FC = () => {
       <Box>
         <InputGroup>
           <TextInputField
-            label="Charakter name"
+            label="Character name"
             placeholder="Shriker"
             register={register('name')}
             error={errors?.name?.message}

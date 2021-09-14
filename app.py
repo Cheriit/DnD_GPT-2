@@ -8,7 +8,7 @@ def generate(
   model,
   tokenizer,
   prompt,
-  entry_length=70,
+  entry_length=100,
   top_p=0.85,
   temperature=1.,
 ):
@@ -51,7 +51,7 @@ app = Flask(__name__)
 CORS(app)
 map_location='cpu'
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = torch.load('./gpt2_dnd_model_10.pt', map_location=map_location).to('cpu')
+model = torch.load('./gpt2_dnd_model_50.pt', map_location=map_location).to('cpu')
 
 
 @app.route('/api', methods=['POST'])
