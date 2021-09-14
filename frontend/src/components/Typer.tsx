@@ -7,7 +7,7 @@ export const Typer: React.FC = () => {
   if (backstory[0] !== [''])
     return (
       <div className="TypistExample">
-        <Typical steps={backstory}></Typical>
+        <Typical steps={backstory} key={backstory}></Typical>
       </div>
     );
   else return <div></div>;
